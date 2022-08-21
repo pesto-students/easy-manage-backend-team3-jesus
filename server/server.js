@@ -15,4 +15,4 @@ app.use("/",userRoutes)
 
 app.get('/', (req, res) => res.send('Hello World!'))
 app.all("*", (req, res) => res.send("That route dosen't exist"))
-app.listen(port, () => console.log(`Sever is listening on port ${port}!`))
+module.exports = app.listen(port, () => console.log(`Sever is listening on port ${port}!`))
