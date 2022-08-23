@@ -20,6 +20,6 @@ jobs:
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          heroku_api_key: ${{ secrets.Heroku_secret }}
-          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          heroku_api_key: "4fe62ca3-d1f8-48b3-99db-19d6d21b3319"
+          heroku_app_name: "jymspace-backend"
+          heroku_email: "dhanushk2105@gmail.com"

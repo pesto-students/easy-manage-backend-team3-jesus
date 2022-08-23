@@ -1,18 +1,22 @@
-import express from 'express'
-import bodyParser from 'body-parser'
-import cors from 'cors'
+const express = require("express")
+const bodyParser = require("body-parser")
 
-import userRoutes from "./routes/users.js"
+const cors = require("cors")
 
-const app = express()
-const port = 5000
+const db = require("./models")
 
+const router = require("./routes/users.js");
 
-app.use(bodyParser.json())
-app.use(cors())
+const app = express();
+const port = 5000;
 
-app.use("/",userRoutes)
+db.sequelize.sync().then((req) => {
+  app.use(bodyParser.json());
+  app.use(cors());
 
-app.get('/', (req, res) => res.send('Hello World!'))
-app.all("*", (req, res) => res.send("That route dosen't exist"))
-module.exports = app.listen(port, () => console.log(`Sever is listening on port ${port}!`))
+  app.use("/api/",router);
+
+  app.get("/", (req, res) => res.send("Hello World!"));
+  // app.all("*", (req, res) => res.send("That route dosen't exist"));
+  app.listen(port, () => console.log(`Sever is listening on port ${port}!`));
+});
