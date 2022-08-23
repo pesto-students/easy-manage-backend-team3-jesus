@@ -8,7 +8,7 @@ const db = require("./models")
 const router = require("./routes/users.js");
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 3000;
 
 db.sequelize.sync().then((req) => {
   app.use(bodyParser.json());
