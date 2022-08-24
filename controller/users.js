@@ -11,15 +11,17 @@ module.exports.getUsers = (req, res) => {
 };
 
 module.exports.createUser = (req, res) => {
+    var firstName = req.body.firstName
+    var age = req.body.age
   User.create({
-    firstName: "Dhanush",
-    age: 19,
+    firstName: firstName,
+    age: age,
   }).catch((err) => {
     if (err) {
       console.log(err);
     }
   });
-  res.send("Enter user");
+  res.send(`User entered -> ${firstName}`);
 };
 
 // module.exports = function getUser(req, res) {
