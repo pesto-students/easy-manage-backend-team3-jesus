@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-    gymId: { //Need forignkey from Gyms.adminId
+    gymId: {
+      //Need forignkey from Gyms.adminId
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -23,12 +24,19 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     lastName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: true,
-        },
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
       },
+    },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -66,26 +74,26 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     dateOfJoin: {
-        type: DataTypes.DATEONLY,
-        allowNull: false,
-        validate: {
-          notEmpty: true,
-        },
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
       },
-      salary: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          notEmpty: true,
-        },
+    },
+    salary: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
       },
-      empStatus: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: true,
-        },
+    },
+    empStatus: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
       },
+    },
   });
 
   return Employ;
