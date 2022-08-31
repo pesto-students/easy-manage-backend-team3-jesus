@@ -20,15 +20,15 @@ const { sequelize } = require("./models");
   app.use("/api/",router);
   app.use("/user/",accountsDataRouter);
 
-  app.get("/", (req, res) => res.send("Hello World!"));
+  app.get("/", (req, res) => res.send("Hello Jym Space!"));
 //   // app.all("*", (req, res) => res.send("That route dosen't exist"));
 //   app.listen(port, () => console.log(`Sever is listening on port ${port}!`));
 // });
 
 app.listen({ port: port }, async () => {
-  console.log("Server set up on http://localhost:5000");
-  await sequelize.sync({ force: true });
-  console.log("Database synced!");
-  // await sequelize.authenticate();
-  // console.log("Database Connected!");
+  // console.log("Server set up on http://localhost:5000");
+  // await sequelize.sync({ force: true });
+  // console.log("Database synced!");
+  await sequelize.authenticate();
+  console.log("Database Connected!");
 });
