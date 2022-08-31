@@ -7,9 +7,10 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(Gyms , Users) {
+    static associate(models) {
       // define association here
-      // this.hasOne(Gyms,{ foreignKey: "account_id", onDelete:"CASCADE"})
+      this.hasOne(models.Gyms)
+      this.hasOne(models.Users)
       // this.hasOne(Users,{ foreignKey: "account_id", onDelete:"CASCADE"})
     }
   }
@@ -44,13 +45,13 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: { msg: "password must not be empty" },
         },
       },
-      roles: {
+      role: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          notNull: { msg: "User must have a role" },
-          notEmpty: { msg: "role must not be empty" },
-        },
+        // validate: {
+        //   notNull: { msg: "User must have a role" },
+        //   notEmpty: { msg: "role must not be empty" },
+        // },
       },
     },
     {

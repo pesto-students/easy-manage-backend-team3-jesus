@@ -1,5 +1,6 @@
 const { AccountsData } = require("../models");
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 
 module.exports.signUp = (req, res) => {
@@ -21,7 +22,7 @@ module.exports.signUp = (req, res) => {
                         email: req.body.email,
                         password: hash,
                         name: req.body.name,
-                        roles: req.body.roles
+                        role: req.body.role
                         }).then(result => {
                             console.log(result)
                             res.status(201).json({
@@ -69,4 +70,54 @@ module.exports.deleteUser = (req, res) => {
         }
     })
     
+}
+
+module.exports.login = (req, res) => {
+    AccountsData.findOne({
+        where : { email: req.body.email}
+    }).then(user => {
+        if(user){
+            bcrypt.compare(req.body.password, user.password, (err, result) => {
+                if(err){
+                    return res.status(401).json({
+                        message: "There was an error while Authentication",
+                        error: err
+                    })
+                }
+                if(result) {
+                    const token = jwt.sign({
+                        uuid: user.uuid,
+                        role: user.role
+                    },
+                    process.env.JWT_SECRET,
+                    {
+                        expiresIn: "1h"
+                    })
+                    return res.status(200).json({
+                        message: "User Authentication is Successful!",
+                        token: token
+                    })
+                }
+
+                return res.status(401).json({
+                    message: "Password Mismatch!! Authentication Failed.",
+                })
+                
+            })
+        } else {
+            return res.status(404).json({
+                message: "Authentication Failed. User not Found!"
+            })
+        }
+    })
+}
+
+module.exports.allAccounts = (req, res) => {
+    AccountsData.findAll().then(accounts =>{
+        return res.status(200).json(accounts)
+    }).catch(err =>{
+        return res.status(500).json({
+            error: err
+        })
+    })
 }

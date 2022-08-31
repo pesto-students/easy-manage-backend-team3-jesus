@@ -9,11 +9,14 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(AccountsData, JymPlans, Users) {
+    static associate(models) {
       // define association here
-      // this.belongsTo(AccountsData,{ foreignKey: "account_id", onDelete:"CASCADE"})
+      this.belongsTo(models.AccountsData)
       // this.belongsTo(JymPlans,{ foreignKey: "planID", onDelete:"CASCADE"})
-      // this.hasMany(Users,{ foreignKey: "UserID", onDelete:"CASCADE"})
+      this.hasMany(models.Users)
+      this.hasMany(models.Events)
+      this.hasMany(models.GymsPlan)
+      this.belongsTo(models.JymPlans)
     }
   }
   Gyms.init({
@@ -55,14 +58,6 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notNull: { msg: "Gym  must have an Pincode" },
         notEmpty: { msg: "PinCode must not be empty" },
-      },
-    },
-    planID: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notNull: { msg: "Gym must have an Plan" },
-        notEmpty: { msg: "Plan must not be empty" },
       },
     },
   }, {

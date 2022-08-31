@@ -10,13 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      this.belongsTo(models.Gyms)
+      this.belongsTo(models.Users)
       // define association here
     }
   }
   Events.init({
-    gymId: DataTypes.STRING,
-    userID: DataTypes.STRING,
-    body: DataTypes.STRING
+      body: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Events',
