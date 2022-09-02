@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Gyms extends Model {
+  class SuperAdmin extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,29 +11,25 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.SuperAdmin)
-      this.hasMany(models.GymPlan)
-      this.hasMany(models.Users)
+      this.hasMany(models.Gyms)
+      this.hasMany(models.Roles)
+      this.hasMany(models.JymPlans)
     }
   }
-  Gyms.init({
+  SuperAdmin.init({
     id: {
       allowNull: false,
       primaryKey: true,
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4
     },
-    name: DataTypes.STRING,
+    username: DataTypes.STRING,
     email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    address: DataTypes.STRING,
-    city: DataTypes.STRING,
-    state: DataTypes.STRING,
-    country: DataTypes.STRING
+    password: DataTypes.STRING
   }, {
     sequelize,
-    tableName:'gyms',
-    modelName: 'Gyms',
+    tableName:'superadmin',
+    modelName: 'SuperAdmin',
   });
-  return Gyms;
+  return SuperAdmin;
 };

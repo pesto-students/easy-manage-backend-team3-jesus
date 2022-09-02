@@ -1,13 +1,16 @@
 const express = require("express");
+const checkAuth = require("../middleware/check-auth.js")
 
-const {createUser, getUsers}  = require('../controller/users.js')
 
-const router = express.Router();
+const { loginUser, updateUser }  = require('../controller/users.js')
 
-// router.get("/user/:id", getUser);
-router.get("/users", getUsers);
-router.post("/user", createUser);
-// router.delete("/user/:id", deleteUser);
-// router.put("/user/:id", updateUser);
 
-module.exports = router;
+const users = express.Router();
+
+
+users.post("/login", loginUser)
+users.put("/update/:id", checkAuth, updateUser)
+
+
+
+module.exports = users;

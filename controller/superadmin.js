@@ -1,10 +1,10 @@
-const { AccountsData } = require("../models");
+const { SuperAdmin } = require("../models");
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
 
 module.exports.signUp = (req, res) => {
-    AccountsData.findOne({
+    SuperAdmin.findOne({
         where : { email: req.body.email}
     }).then( user => {
         if(user){
@@ -18,11 +18,10 @@ module.exports.signUp = (req, res) => {
                         error: err
                     })
                 } else {
-                    AccountsData.create({
+                    SuperAdmin.create({
                         email: req.body.email,
                         password: hash,
-                        name: req.body.name,
-                        role: req.body.role
+                        username: req.body.username,
                         }).then(result => {
                             console.log(result)
                             res.status(201).json({
@@ -45,11 +44,11 @@ module.exports.signUp = (req, res) => {
 };
 
 module.exports.deleteUser = (req, res) => {
-    AccountsData.findOne({
+    SuperAdmin.findOne({
         where : { uuid: req.params.uuid}
     }).then(user => {
         if (user){
-            AccountsData.destroy({
+            SuperAdmin.destroy({
                 where: {
                   uuid: req.params.uuid
                 }
@@ -73,7 +72,7 @@ module.exports.deleteUser = (req, res) => {
 }
 
 module.exports.login = (req, res) => {
-    AccountsData.findOne({
+    SuperAdmin.findOne({
         where : { email: req.body.email}
     }).then(user => {
         if(user){
@@ -87,7 +86,7 @@ module.exports.login = (req, res) => {
                 if(result) {
                     const token = jwt.sign({
                         uuid: user.uuid,
-                        role: user.role
+                        role: "super"
                     },
                     process.env.JWT_SECRET,
                     {
@@ -113,7 +112,7 @@ module.exports.login = (req, res) => {
 }
 
 module.exports.allAccounts = (req, res) => {
-    AccountsData.findAll().then(accounts =>{
+    SuperAdmin.findAll().then(accounts =>{
         return res.status(200).json(accounts)
     }).catch(err =>{
         return res.status(500).json({

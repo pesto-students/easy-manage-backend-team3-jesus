@@ -3,23 +3,31 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Events extends Model {
+  class GymPlan extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.belongsTo(models.Gyms)
-      this.belongsTo(models.Users)
       // define association here
+      this.belongsTo(models.Gyms)
+      this.hasMany(models.Users)
     }
   }
-  Events.init({
-      body: DataTypes.STRING
+  GymPlan.init({
+    id: {
+      allowNull: false,
+      primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4
+    },
+    planName: DataTypes.STRING,
+    price: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'Events',
+    tableName:'gymplan',
+    modelName: 'GymPlan',
   });
-  return Events;
+  return GymPlan;
 };

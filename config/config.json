@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "WCpSiJreeE",
-    "password": "EhiT7uHsMw",
-    "database": "WCpSiJreeE",
-    "host": "remotemysql.com",
+    "username": "root",
+    "password": "root",
+    "database": "jymspace_development",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {

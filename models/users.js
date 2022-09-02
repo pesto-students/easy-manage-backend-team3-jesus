@@ -11,24 +11,28 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.AccountsData)
       this.belongsTo(models.Gyms)
-      this.hasMany(models.Events)
-      this.hasMany(models.UserDashboard)
+      this.belongsTo(models.GymPlan)
     }
   }
   Users.init({
-    userId: DataTypes.STRING,
+    id: {
+      allowNull: false,
+      primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4
+    },
+    name: DataTypes.STRING,
+    sex: DataTypes.STRING,
     email: DataTypes.STRING,
+    password: DataTypes.STRING,
     address: DataTypes.STRING,
     city: DataTypes.STRING,
     state: DataTypes.STRING,
-    role: DataTypes.STRING,
-    status: DataTypes.STRING,
-    pincode: DataTypes.STRING
+    country: DataTypes.STRING
   }, {
     sequelize,
-    tableName:"users",
+    tableName:'users',
     modelName: 'Users',
   });
   return Users;

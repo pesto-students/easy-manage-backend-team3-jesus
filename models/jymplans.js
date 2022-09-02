@@ -11,16 +11,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.SuperAdmin)
       this.hasMany(models.Gyms)
     }
   }
   JymPlans.init({
-    planId: DataTypes.STRING,
+    id: {
+      allowNull: false,
+      primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4
+    },
     planName: DataTypes.STRING,
-    planPrice: DataTypes.STRING
+    price: DataTypes.INTEGER
   }, {
     sequelize,
-    tableName:"jym_plans",
+    tableName:"jymplans",
     modelName: 'JymPlans',
   });
   return JymPlans;
