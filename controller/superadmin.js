@@ -85,7 +85,7 @@ module.exports.login = (req, res) => {
                 }
                 if(result) {
                     const token = jwt.sign({
-                        uuid: user.uuid,
+                        id: user.id,
                         role: "super"
                     },
                     process.env.JWT_SECRET,

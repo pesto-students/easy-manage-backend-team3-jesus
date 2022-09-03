@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.SuperAdmin)
-      this.hasMany(models.Users)
+      // this.belongsTo(models.SuperAdmin)
+      // this.hasMany(models.Users)
     }
   }
   Roles.init({

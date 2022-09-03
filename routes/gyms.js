@@ -1,5 +1,6 @@
 const express = require("express");
 const checkAuth = require("../middleware/check-auth.js")
+const authRole = require("../middleware/check-role.js");
 
 const { loginGym }  = require('../controller/gyms.js')
 const { signUpUser, updateUser, deleteUser }  = require('../controller/users.js')
@@ -7,16 +8,16 @@ const { create, deletePlan, updatePlan, allPlan }  = require('../controller/gymp
 
 const gyms = express.Router();
 
-gyms.get("/allPlans", checkAuth, allPlan)
-gyms.post("/plan/create", checkAuth, create)
-gyms.put("/plan/update/:id", checkAuth, updatePlan)
-gyms.delete("/plan/delete/:id", checkAuth, deletePlan)
+gyms.get("/allPlans", checkAuth, authRole("gym"), allPlan)
+gyms.post("/plan/create", checkAuth, authRole("gym"), create)
+gyms.put("/plan/update/:id", checkAuth, authRole("gym"), updatePlan)
+gyms.delete("/plan/delete/:id", checkAuth, authRole("gym"), deletePlan)
 
 gyms.post("/login", loginGym)
 
-gyms.post("/user/signup", checkAuth, signUpUser)
-gyms.put("/user/update/:id", checkAuth, updateUser)
-gyms.delete("/user/delete/:id", checkAuth, deleteUser)
+gyms.post("/user/signup", checkAuth, authRole("gym"), signUpUser)
+gyms.put("/user/update/:id", checkAuth, authRole("gym"), updateUser)
+gyms.delete("/user/delete/:id", checkAuth, authRole("gym"), deleteUser)
 
 
 module.exports = gyms;

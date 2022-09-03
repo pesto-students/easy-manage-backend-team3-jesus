@@ -33,8 +33,8 @@ const { sequelize } = require("./models");
 
 app.listen({ port: port }, async () => {
 
-  // await sequelize.sync({ force: true });
-  // console.log("Database synced!");
-  await sequelize.authenticate();
-  console.log("Database Connected!");
+  await sequelize.sync({ force: true });
+  console.log("Database synced!");
+  // await sequelize.authenticate();
+  // console.log("Database Connected!");
 });
