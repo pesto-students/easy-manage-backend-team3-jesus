@@ -12,7 +12,8 @@ module.exports.create = (req, res) => {
         } else {
             GymPlan.create({
                 planName: req.body.planName,
-                price: req.body.price
+                price: req.body.price,
+                GymId: req.userData.GymId
                 }).then(result => {
                     console.log(result)
                     res.status(201).json({
