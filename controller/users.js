@@ -26,6 +26,9 @@ module.exports.signUpUser = (req, res) => {
             city: req.body.city,
             state: req.body.state,
             country: req.body.country,
+            RoleId: req.body.role,
+            GymPlanId: req.body.GymPlanId,
+            GymId: req.userData.GymId
           })
             .then((result) => {
               console.log(result);

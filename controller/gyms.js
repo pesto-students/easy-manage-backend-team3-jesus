@@ -25,6 +25,8 @@ module.exports.signUpGym = (req, res) => {
             city: req.body.city,
             state: req.body.state,
             country: req.body.country,
+            JymPlanId: req.body.JymPlanId,
+            SuperAdminId: req.userData.SuperAdminId
           })
             .then((result) => {
               console.log(result);
@@ -61,8 +63,8 @@ module.exports.loginGym = (req, res) => {
         if (result) {
           const token = jwt.sign(
             {
-              uuid: user.uuid,
-              role: "super",
+              GymId: user.id,
+              role: "gym",
             },
             process.env.JWT_SECRET,
             {
