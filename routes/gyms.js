@@ -15,7 +15,7 @@ gyms.delete("/plan/delete/:id", checkAuth, authRole("gym"), deletePlan)
 
 gyms.post("/login", loginGym)
 
-gyms.get("/allaccounts", checkAuth, authRole("gym"), allAccountsUser)
+gyms.get("users/allaccounts", checkAuth, authRole("gym"), allAccountsUser)
 gyms.post("/user/signup", checkAuth, authRole("gym"), signUpUser)
 gyms.put("/user/update/:id", checkAuth, authRole("gym"), updateUser)
 gyms.delete("/user/delete/:id", checkAuth, authRole("gym"), deleteUser)
