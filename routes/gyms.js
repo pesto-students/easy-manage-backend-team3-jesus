@@ -2,7 +2,7 @@ const express = require("express");
 const checkAuth = require("../middleware/check-auth.js")
 const authRole = require("../middleware/check-role.js");
 
-const { loginGym }  = require('../controller/gyms.js')
+const { loginGym,  }  = require('../controller/gyms.js')
 const { signUpUser, updateUser, deleteUser, allAccountsUser }  = require('../controller/users.js')
 const { create, deletePlan, updatePlan, allPlan }  = require('../controller/gymplan.js')
 

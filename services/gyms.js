@@ -99,3 +99,32 @@ module.exports.getAllGymData = (req, res) => {
       });
     });
 };
+
+
+module.exports.deleteGymData = (req, res) => {
+  Gyms.findOne({
+      where : { id: req.params.id}
+  }).then(user => {
+      if (user){
+        Gyms.destroy({
+              where: {
+                  id: req.params.id
+              }
+            }).then(result =>{
+              return res.status(200).json({
+                  message: `Gym Deleted Succesfully`
+              })
+            })
+            .catch(err => {
+              return res.staus(500).json({
+                  error:err
+              })
+            })
+      } else {
+          return res.status(500).json({
+              message: "Gym doesn't exist"
+          })
+      }
+  })
+  
+}
