@@ -13,7 +13,7 @@ const { signUpGym, allAccountsGym } = require("../controller/gyms.js");
 const superadmin = express.Router();
 
 superadmin.get("/allAccounts", checkAuth, authRole("super"),allAccounts);
-superadmin.get("gym/allAccounts", checkAuth, authRole("super"),allAccountsGym);
+superadmin.get("/gym/allAccounts", checkAuth, authRole("super"),allAccountsGym);
 superadmin.post("/asiuahgsfuyd876skdasudh/signup", signUp);
 superadmin.post("/gym/signup", checkAuth, authRole("super"), signUpGym);
 superadmin.post("/login", login);
