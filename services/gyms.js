@@ -92,7 +92,7 @@ module.exports.registerGym = (req, res) => {
   };
   
   module.exports.getAllGymData = (req, res) => {
-    Gyms.findAll({include: [Users]})
+    Gyms.findAll()
       .then((accounts) => {
         return res.status(200).json(accounts);
       })
