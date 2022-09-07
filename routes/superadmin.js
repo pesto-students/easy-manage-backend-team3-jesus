@@ -8,7 +8,7 @@ const {
   login,
   allAccounts,
 } = require("../controller/superadmin.js");
-const { signUpGym, allAccountsGym, deleteGym } = require("../controller/gyms.js");
+const { signUpGym, allAccountsGym, deleteGym, updateGym } = require("../controller/gyms.js");
 
 const superadmin = express.Router();
 
@@ -19,5 +19,6 @@ superadmin.post("/gym/signup", checkAuth, authRole("super"), signUpGym);
 superadmin.post("/login", login);
 superadmin.delete("/asiuahgsfuyd876skdasudh/delete/:uuid", deleteUser);
 superadmin.delete("/gym/delete/:id", checkAuth, authRole("super"), deleteGym)
+superadmin.put("/gym/update/:id", checkAuth, authRole("super"), updateGym)
 
 module.exports = superadmin;
