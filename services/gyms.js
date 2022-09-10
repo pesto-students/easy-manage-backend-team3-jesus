@@ -23,7 +23,7 @@ module.exports.registerGym = (req, res) => {
             password: hash,
             address: req.body.address,
             city: req.body.city,
-            state: req.body.state,
+            state: req.body.stateName,
             country: req.body.country,
             JymPlanId: req.body.JymPlanId,
             SuperAdminId: req.userData.id,

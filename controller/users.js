@@ -21,3 +21,7 @@ module.exports.allAccountsUser = (req, res) => {
 module.exports.deleteUser = (req, res) => {
   return deleteUserRecord(req, res)
 }
+
+module.exports.accountUser = (req, res) => {
+  return getUserData(req, res)
+};

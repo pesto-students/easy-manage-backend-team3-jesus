@@ -3,7 +3,7 @@ const checkAuth = require("../middleware/check-auth.js")
 const authRole = require("../middleware/check-role.js");
 
 const { loginGym,  }  = require('../controller/gyms.js')
-const { signUpUser, updateUser, deleteUser, allAccountsUser }  = require('../controller/users.js')
+const { signUpUser, updateUser, deleteUser, allAccountsUser, accountUser }  = require('../controller/users.js')
 const { create, deletePlan, updatePlan, allPlan }  = require('../controller/gymplan.js')
 
 const gyms = express.Router();
@@ -19,6 +19,8 @@ gyms.get("users/allaccounts", checkAuth, authRole("gym"), allAccountsUser)
 gyms.post("/user/signup", checkAuth, authRole("gym"), signUpUser)
 gyms.put("/user/update/:id", checkAuth, authRole("gym"), updateUser)
 gyms.delete("/user/delete/:id", checkAuth, authRole("gym"), deleteUser)
+gyms.get("user/:id", checkAuth, authRole("gym"), accountUser)
+
 
 
 module.exports = gyms;
