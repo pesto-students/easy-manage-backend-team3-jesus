@@ -92,7 +92,19 @@ module.exports.gymLogin = (req, res) => {
 module.exports.getAllGymData = (req, res) => {
   Gyms.findAll()
     .then((accounts) => {
-      console.log("This is from gym accessed by super:", accounts);
+      return res.status(200).json(accounts);
+    })
+    .catch((err) => {
+      return res.status(500).json({
+        error: err,
+      });
+    });
+};
+
+module.exports.getGymData = (req, res) => {
+  Gyms.findOne({
+    where: { id: req.params.id },
+  }).then((accounts) => {
       return res.status(200).json(accounts);
     })
     .catch((err) => {

@@ -4,6 +4,7 @@ const {
   getAllGymData,
   deleteGymData,
   updateGymData,
+  getGymData,
 } = require("../services/gyms");
 
 module.exports.signUpGym = (req, res) => {
@@ -12,6 +13,10 @@ module.exports.signUpGym = (req, res) => {
 
 module.exports.loginGym = (req, res) => {
   return gymLogin(req, res);
+};
+
+module.exports.getGym = (req, res) => {
+  return getGymData(req, res);
 };
 
 module.exports.allAccountsGym = (req, res) => {
