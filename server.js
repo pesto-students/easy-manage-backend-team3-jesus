@@ -25,7 +25,7 @@ const { sequelize } = require("./models");
   app.use("/superadmin/",superadmin);
   app.use("/superadmin/roles",roles);
   app.use("/superadmin/jymplans",jymplans);
-  app.use("/gym/",gyms);
+  app.use("/gym",gyms);
   app.use("/users/",users);
   app.use("/quotes/",quotes);
 
