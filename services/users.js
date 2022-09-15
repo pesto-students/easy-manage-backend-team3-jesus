@@ -19,12 +19,12 @@ module.exports.registerUser = (req, res) => {
         } else {
           Users.create({
             name: req.body.name,
-            sex: req.body.name,
+            sex: req.body.sex,
             email: req.body.email,
             password: hash,
             address: req.body.address,
             city: req.body.city,
-            state: req.body.state,
+            state: req.body.stateName,
             country: req.body.country,
             RoleId: req.body.role,
             GymPlanId: req.body.GymPlanId,
@@ -101,7 +101,7 @@ module.exports.updateUserData = (req, res) => {
           sex: req.body.name,
           address: req.body.address,
           city: req.body.city,
-          state: req.body.state,
+          state: req.body.stateName,
           country: req.body.country,
           },{
               where: {
@@ -168,3 +168,18 @@ module.exports.deleteUserRecord = (req, res) => {
   })
   
 }
+
+
+module.exports.getUserData = (req, res) => {
+  Users.findAll({
+    where : { id: req.params.id}
+})
+    .then((accounts) => {
+      return res.status(200).json(accounts);
+    })
+    .catch((err) => {
+      return res.status(500).json({
+        error: err,
+      });
+    });
+};

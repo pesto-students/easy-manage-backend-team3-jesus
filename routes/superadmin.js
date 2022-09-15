@@ -13,6 +13,7 @@ const {
   allAccountsGym,
   deleteGym,
   updateGym,
+  getGym,
 } = require("../controller/gyms.js");
 
 const superadmin = express.Router();
@@ -30,5 +31,6 @@ superadmin.post("/login", login);
 superadmin.delete("/asiuahgsfuyd876skdasudh/delete/:uuid", deleteUser);
 superadmin.delete("/gym/delete/:id", checkAuth, authRole("super"), deleteGym);
 superadmin.put("/gym/update/:id", checkAuth, authRole("super"), updateGym);
+superadmin.get("/gym/get/:id", checkAuth, authRole("super"), getGym);
 
 module.exports = superadmin;
