@@ -151,7 +151,7 @@ module.exports.updateGymData = (req, res) => {
         {
           name: req.body.name,
           email: req.body.email,
-          password: hash,
+          password: req.body.password,
           address: req.body.address,
           city: req.body.city,
           state: req.body.state,
