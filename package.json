@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "mocha || true",
+    "test": "mocha --timeout 20000 || true",
     "start": "node server.js"
   },
   "author": "",
@@ -23,7 +23,9 @@
     "jsonwebtoken": "^8.5.1",
     "mocha": "^10.0.0",
     "mysql2": "^2.3.3",
+    "node-fetch": "^3.2.10",
     "path": "^0.12.7",
+    "request": "^2.88.2",
     "sequelize": "^6.21.4",
     "sequelize-cli": "^6.4.1",
     "uuid": "^8.3.2"
