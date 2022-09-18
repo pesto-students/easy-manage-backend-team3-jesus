@@ -22,5 +22,4 @@ gyms.delete("/user/delete/:id", checkAuth, authRole("gym"), deleteUser)
 gyms.get("/user/:id", checkAuth, authRole("gym"), accountUser)
 
 
-
 module.exports = gyms;
