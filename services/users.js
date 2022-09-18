@@ -171,7 +171,7 @@ module.exports.deleteUserRecord = (req, res) => {
 
 
 module.exports.getUserData = (req, res) => {
-  Users.findAll({
+  Users.findOne({
     where : { id: req.params.id}
 })
     .then((accounts) => {

@@ -8,19 +8,18 @@ const { create, deletePlan, updatePlan, allPlan }  = require('../controller/gymp
 
 const gyms = express.Router();
 
-gyms.get("/allPlans", checkAuth, authRole("gym"), allPlan)
+gyms.get("/allplans", checkAuth, authRole("gym"), allPlan)
 gyms.post("/plan/create", checkAuth, authRole("gym"), create)
 gyms.put("/plan/update/:id", checkAuth, authRole("gym"), updatePlan)
 gyms.delete("/plan/delete/:id", checkAuth, authRole("gym"), deletePlan)
 
 gyms.post("/login", loginGym)
 
-gyms.get("users/allaccounts", checkAuth, authRole("gym"), allAccountsUser)
+gyms.get("/users/allaccounts", checkAuth, authRole("gym"), allAccountsUser)
 gyms.post("/user/signup", checkAuth, authRole("gym"), signUpUser)
 gyms.put("/user/update/:id", checkAuth, authRole("gym"), updateUser)
 gyms.delete("/user/delete/:id", checkAuth, authRole("gym"), deleteUser)
-gyms.get("user/:id", checkAuth, authRole("gym"), accountUser)
-
+gyms.get("/user/:id", checkAuth, authRole("gym"), accountUser)
 
 
 module.exports = gyms;

@@ -25,6 +25,7 @@ superadmin.get(
   authRole("super"),
   allAccountsGym
 );
+
 superadmin.post("/asiuahgsfuyd876skdasudh/signup", signUp);
 superadmin.post("/gym/signup", checkAuth, authRole("super"), signUpGym);
 superadmin.post("/login", login);
