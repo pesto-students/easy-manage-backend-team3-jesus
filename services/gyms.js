@@ -90,7 +90,7 @@ module.exports.gymLogin = (req, res) => {
 };
 
 module.exports.getAllGymData = (req, res) => {
-  Gyms.findAll()
+  Gyms.findAll({attributes: {exclude: ['password']}})
     .then((accounts) => {
       return res.status(200).json(accounts);
     })
@@ -103,6 +103,7 @@ module.exports.getAllGymData = (req, res) => {
 
 module.exports.getGymData = (req, res) => {
   Gyms.findOne({
+    attributes: {exclude: ['password']},
     where: { id: req.params.id },
   }).then((accounts) => {
       return res.status(200).json(accounts);

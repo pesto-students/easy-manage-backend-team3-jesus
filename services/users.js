@@ -93,12 +93,13 @@ module.exports.loginForUser = (req, res) => {
 
 module.exports.updateUserData = (req, res) => {
   Users.findOne({
+    attributes: {exclude: ['password']},
       where : { id: req.params.id, GymId: req.userData.id}
   }).then(user => {
       if (user){
         Users.update({
           name: req.body.name,
-          sex: req.body.name,
+          sex: req.body.sex,
           address: req.body.address,
           city: req.body.city,
           stateName: req.body.stateName,
@@ -128,6 +129,7 @@ module.exports.updateUserData = (req, res) => {
 
 module.exports.getAllUserData = (req, res) => {
   Users.findAll({
+    attributes: {exclude: ['password']},
     where : { GymId: req.userData.id}
 })
     .then((accounts) => {
