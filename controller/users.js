@@ -1,4 +1,4 @@
-const {registerUser, loginForUser, updateUserData, getAllUserData, deleteUserRecord} = require("../services/users.js")
+const {registerUser, loginForUser, updateUserData, getAllUserData, deleteUserRecord, getUserData} = require("../services/users.js")
 
 module.exports.signUpUser = (req, res) => {
   return registerUser(req, res)
