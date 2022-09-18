@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Gyms extends Model {
     /**
@@ -11,29 +9,32 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.SuperAdmin)
-      this.hasMany(models.GymPlan)
-      this.hasMany(models.Users)
+      this.belongsTo(models.SuperAdmin);
+      this.hasMany(models.GymPlan);
+      this.hasMany(models.Users);
     }
   }
-  Gyms.init({
-    id: {
-      allowNull: false,
-      primaryKey: true,
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4
+  Gyms.init(
+    {
+      id: {
+        allowNull: false,
+        primaryKey: true,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+      },
+      name: DataTypes.STRING,
+      email: DataTypes.STRING,
+      password: DataTypes.STRING,
+      address: DataTypes.STRING,
+      city: DataTypes.STRING,
+      stateName: DataTypes.STRING,
+      country: DataTypes.STRING,
     },
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    address: DataTypes.STRING,
-    city: DataTypes.STRING,
-    stateName: DataTypes.STRING,
-    country: DataTypes.STRING
-  }, {
-    sequelize,
-    tableName:'gyms',
-    modelName: 'Gyms',
-  });
+    {
+      sequelize,
+      tableName: "gyms",
+      modelName: "Gyms",
+    }
+  );
   return Gyms;
 };
