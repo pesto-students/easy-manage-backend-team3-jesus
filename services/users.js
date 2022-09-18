@@ -24,7 +24,7 @@ module.exports.registerUser = (req, res) => {
             password: hash,
             address: req.body.address,
             city: req.body.city,
-            state: req.body.stateName,
+            stateName: req.body.stateName,
             country: req.body.country,
             RoleId: req.body.role,
             GymPlanId: req.body.GymPlanId,
@@ -101,7 +101,7 @@ module.exports.updateUserData = (req, res) => {
           sex: req.body.name,
           address: req.body.address,
           city: req.body.city,
-          state: req.body.stateName,
+          stateName: req.body.stateName,
           country: req.body.country,
           },{
               where: {
