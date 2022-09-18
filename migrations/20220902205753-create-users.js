@@ -26,7 +26,7 @@ module.exports = {
       city: {
         type: DataTypes.STRING
       },
-      state: {
+      stateName: {
         type: DataTypes.STRING
       },
       country: {
