@@ -1,21 +1,39 @@
-# Pesto Assignments
 
-Welcome to Pesto assignments.
+# JymSpace
+
+Jym Space is a social media platform that helps commercial gyms create private spaces to manage, and interact with clients. It also handles payments from registered clients. Provides interactive metric dashboard for admins and members.
+## Demo
+
+[Login](https://jymspace.netlify.app/)
+
+Please Note:
+
+- We recommend using this app in Google Chrome
+- Use the app on Laptop/desktop only as of now.
+
+Test Credentials:
+- For Admin
+  - Email: test@user.io
+  - Password: test-user@pass
+
+- For Gyms
+  - Email: test@user.io
+  - Password: test-user@pass
 
 
-## How to solve assignments
+## Installation
 
-Weekly Assignments will be shared by your mentor or instructor.
+- Fork or directly clone this repository to your local machine
+- Use the ```npm install``` command to install dependencies
+- Once the dependencies are finished installing, use the ```npm start``` command inside the root directory to open the app in your local browser of choice
+    
+## Authors
 
-Make sure master or main branch is protected and you are not able to push any code directly to master.
+- [Aditya Akhare](https://github.com/adicurious)
+- [Dhanush Kumar Suresh](https://www.github.com/dhanushk2105)
 
-- Clone this repo to your local.
-- Checkout to new branch for submission. Suggestion you can name new branch week wise - branch for week 1 assignment can be week1
-```bash
-git checkout -b week1
-```
-- Create Assignment week folder in root directory(if it doesn't exist) for eg. for solving week 1 assignment create folder with name "week1".
-- You can create subfolders in main week(week1) folder if required.
-- Add proper readme [(How to Write proper readme](https://meakaakka.medium.com/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3) )in week's folder or subfolder explaining about assignment, how to run assignment and any other instructions. 
-- Raise a PR against master and add your mentor as reviewer
-- Resolve PR comments if any and once your mentor approves your PR, Merge it.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
