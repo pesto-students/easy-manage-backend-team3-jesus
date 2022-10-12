@@ -3,6 +3,14 @@
 
 
 Jym Space is a CRM tool that helps commercial gyms create private spaces to manage, and interact with clients. It also handles payments from registered clients. Provides interactive metric dashboard for admins and members.
+
+## Table of Contents
+- [Demo](#demo)
+- [Installation](#installation)
+- [Tech Stack](#tech-stack)
+- [Authors](#authors)
+- [License](#license)
+
 ## Demo
 
 [Login](https://jymspace.netlify.app/)
