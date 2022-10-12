@@ -1,5 +1,6 @@
 
-# JymSpace
+# JymSpace ![image](https://user-images.githubusercontent.com/45116504/195271357-82883608-cc72-40d2-9d9a-e1709b30353c.png)
+
 
 Jym Space is a social media platform that helps commercial gyms create private spaces to manage, and interact with clients. It also handles payments from registered clients. Provides interactive metric dashboard for admins and members.
 ## Demo
@@ -27,6 +28,14 @@ Test Credentials:
 - Use the ```npm install``` command to install dependencies
 - Once the dependencies are finished installing, use the ```npm start``` command inside the root directory to open the app in your local browser of choice
     
+## Tech Stack
+
+- Node JS
+- Express JS
+- MySQL
+- JWT
+- Sequelize
+
 ## Authors
 
 - [Aditya Akhare](https://github.com/adicurious)
