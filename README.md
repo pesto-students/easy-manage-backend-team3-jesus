@@ -2,7 +2,7 @@
 # JymSpace ![image](https://user-images.githubusercontent.com/45116504/195271357-82883608-cc72-40d2-9d9a-e1709b30353c.png)
 
 
-Jym Space is a social media platform that helps commercial gyms create private spaces to manage, and interact with clients. It also handles payments from registered clients. Provides interactive metric dashboard for admins and members.
+Jym Space is a CRM tool that helps commercial gyms create private spaces to manage, and interact with clients. It also handles payments from registered clients. Provides interactive metric dashboard for admins and members.
 ## Demo
 
 [Login](https://jymspace.netlify.app/)
